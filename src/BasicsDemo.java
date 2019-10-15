@@ -135,7 +135,7 @@ class BasicsDemo {
 
 		char c1 = 'a'; // U+0061 --> 0110 0001
 		char c2 = 'b'; // U+0062 --> 0110 0010
-		System.out.println("c1 | c2: " + (c1 | c2)); // 0110 0011 --> 99 in decimal		
+		System.out.println("c1 | c2: " + (c1 | c2)); // 0110 0011 --> 99 in decimal
 
 		// Since bitwise work only on Integer types, following will not compile
 		//double d1 = 3.14;
@@ -254,6 +254,54 @@ class BasicsDemo {
 		System.out.println("s1 == \"hel\" + s5: " + (s1 == "hel" + s5));
 	}
 
+	public BasicsDemo () {
+		System.out.println("Inside no-arg constructor ...");
+	}
+
+	public BasicsDemo (int id) {
+		System.out.println("Inside constructor with a parameter ...");
+	}
+
+	{
+		System.out.println("Inside instance initializer ...");
+	}
+
+	static void veryExpensive() {
+		System.out.println("\nInside veryExpensive ...");
+		Long sum = 0L;
+		for (long i = 0; i < Integer.MAX_VALUE; i++) {
+			sum = sum + i;
+		}
+	}
+
+	static void compareBoxPrimitives() {
+		System.out.println("\nInside compareBoxPrimitives ...");
+		Integer num1 = new Integer(0);
+		Integer num2 = new Integer(0);
+		System.out.println("(num1 == num2): " + (num1 == num2));
+
+		// Solutions:
+		System.out.println("(num1.intValue() == num2.intValue()): " + (num1.intValue() == num2.intValue()));
+		System.out.println("(num1.equals(num2)): " + (num1.equals(num2)));
+
+		Integer num3 = new Integer(1);
+		System.out.println("(num1 < num3): " + (num1 < num3)); // "<" does un-boxing first
+	}
+
+	static Integer i;
+	static void unbelievable() {
+		System.out.println("\nInside unbelievable ...");
+		if (i == 0)
+			System.out.println("weird!");
+	}
+
+	static boolean checkBoxedPrimitives() {
+		Integer i1 = new Integer(25);
+		Integer i2 = new Integer(25);
+		boolean isEqual = i1 == i2;
+		System.out.println("i1 == i2" + isEqual);
+		return  i1 == i2;
+	}
 	public static void main(String[] args) {
 		// Language Basics 1
 		//print();
@@ -272,6 +320,19 @@ class BasicsDemo {
 		// import demo
 		// package creation demo
 		//stringExamples();
-		stringPool();
+		//stringPool();
+		//BasicsDemo bd = new BasicsDemo(1);
+
+		//Integer[] items = new int[]{1, 2};
+
+	  /*
+	  long start = System.nanoTime();
+	  veryExpensive();
+	  System.out.println("Elapsed time: " + ((System.nanoTime() - start) / 1000000.0) + " msec");
+	  */
+
+		//compareBoxPrimitives();
+		//unbelievable();
+		checkBoxedPrimitives();
 	}
 }
