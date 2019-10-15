@@ -3,6 +3,16 @@ package com.semanticsquare.oop.e6;
 public class Patient extends User {
 
     private long patientId;
+    private HealthInsurancePlan insurancePlan;
+
+
+    public HealthInsurancePlan getInsurancePlan() {
+        return insurancePlan;
+    }
+
+    public void setInsurancePlan(HealthInsurancePlan insurancePlan) {
+        this.insurancePlan = insurancePlan;
+    }
 
     public long getPatientId() {
         return patientId;
