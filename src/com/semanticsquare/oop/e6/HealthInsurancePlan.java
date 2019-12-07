@@ -1,11 +1,24 @@
 package com.semanticsquare.oop.e6;
 
-public class HealthInsurancePlan {
+public abstract class HealthInsurancePlan {
+
+    public HealthInsurancePlan() {
+    }
 
     private double discount;
 
     // Code for 'coverage' field goes here
     private double coverage;
+
+    public double getFactor() {
+        return factor;
+    }
+
+    public void setFactor(double factor) {
+        this.factor = factor;
+    }
+
+    private double factor;
 
     public double getCoverage() {
         return coverage;
@@ -34,4 +47,7 @@ public class HealthInsurancePlan {
     public void setOfferedBy(InsuranceBrand offeredBy) {
         this.offeredBy = offeredBy;
     }
+
+
+    public abstract double computeMonthlyPremium(double salary);
 }

@@ -8,6 +8,10 @@ public class User {
     private String gender;
     private String email;
 
+    private boolean insured;
+    private HealthInsurancePlan insurancePlan;
+
+
     public String getFirstName() {
         return firstName;
     }
@@ -40,13 +44,25 @@ public class User {
         this.email = email;
     }
 
-
-
     public long getId() {
         return id;
     }
     public void setId(long id) {
         this.id = id;
+    }
+
+    public HealthInsurancePlan getInsurancePlan() {
+        return insurancePlan;
+    }
+    public void setInsurancePlan(HealthInsurancePlan insurancePlan) {
+        this.insurancePlan = insurancePlan;
+    }
+
+    public boolean isInsured() {
+        return insured;
+    }
+    public void setInsured(boolean insured) {
+        this.insured = insured;
     }
 
 }
